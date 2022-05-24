@@ -3,7 +3,7 @@ import Constellation from "../models/constellation-model";
 
 describe('Constellations', () => {
 	describe("Create constellations", () => {
-		it("Should create a new user successfully!", () => {
+		it("Should create a new constellation successfully!", () => {
 			const mockData = {
 				name: "Const C",
 				abbreviation: "C",
@@ -60,7 +60,7 @@ describe('Constellations', () => {
 			spy.mockReset();
 		});
 	
-		it("Should return an empty list if there are no user", () => {
+		it("Should return an empty list if there are no constellation", () => {
 			const spy = jest.spyOn(Constellation, "find").mockReturnValueOnce([]);
 			Constellation.find({});
 	
@@ -70,7 +70,7 @@ describe('Constellations', () => {
 			spy.mockReset();
 		});
 	
-		it("Should return a user successfully!", () => {
+		it("Should return a constellation successfully!", () => {
 			const mockData = {
 				_id: '628bdc972c55c8207c2cba16',
 				name: "Const Name",
@@ -86,7 +86,7 @@ describe('Constellations', () => {
 			spy.mockReset();
 		});
 	
-		it("Should return an error when the user does not exit", () => {
+		it("Should return an error when the constellation does not exit", () => {
 			const id = "628bdc972c55c8207c2cba16";
 			const spy = jest.spyOn(Constellation, "findById").mockReturnValueOnce("Constellation not found");
 			Constellation.findById(id);
@@ -99,7 +99,7 @@ describe('Constellations', () => {
 	});
 	
 	describe("UPDATE constellations", () => {
-		it("Should update a user successfully!", () => {
+		it("Should update a constellation successfully!", () => {
 			const mockData = {
 				_id: '628bdc972c55c8207c2cba16',
 				name: "Const Name",
@@ -115,21 +115,21 @@ describe('Constellations', () => {
 	
 			const spyUpdatedUser = spy.mock.results[0].value;
 			expect(spy).toHaveBeenCalledTimes(1);
-			expect(spyUpdatedUser.name).toEqual("onst new name");
+			expect(spyUpdatedUser.name).toEqual("Const new name");
 			spy.mockReset();
 		});
 	
-		it("Should returns an error if a user does not exist", () => {
-			const spy = jest.spyOn(Constellation, "findByIdAndUpdate").mockReturnValueOnce("Id provided does not match any user");
-			Constellation.findByIdAndUpdate(Types.ObjectId(), {
-				email: "john@gmail.com",
+		it("Should returns an error if a constellation does not exist", () => {
+			const spy = jest.spyOn(Constellation, "findByIdAndUpdate").mockReturnValueOnce("Id provided does not match any constellation");
+			Constellation.findByIdAndUpdate("628bdc972c55c8207c2cba16", {
+				name: "Constellation",
 			}, {
 				new: true,
 			});
 	
 			const spyUpdatedUser = spy.mock.results[0].value;
 			expect(spy).toHaveBeenCalledTimes(1);
-			expect(spyUpdatedUser).toEqual("Id provided does not match any user");
+			expect(spyUpdatedUser).toEqual("Id provided does not match any constellation");
 			spy.mockReset();
 		});
 	});
