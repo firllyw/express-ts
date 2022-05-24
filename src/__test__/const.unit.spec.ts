@@ -54,9 +54,9 @@ describe('Constellations', () => {
 			const spy = jest.spyOn(Constellation, "find").mockReturnValueOnce(mockedList);
 			Constellation.find({});
 	
-			const spyFetchedUsers = spy.mock.results[0].value;
+			const spyFetchedConst = spy.mock.results[0].value;
 			expect(spy).toHaveBeenCalledTimes(1);
-			expect(spyFetchedUsers).toHaveLength(2);
+			expect(spyFetchedConst).toHaveLength(2);
 			spy.mockReset();
 		});
 	
@@ -64,9 +64,9 @@ describe('Constellations', () => {
 			const spy = jest.spyOn(Constellation, "find").mockReturnValueOnce([]);
 			Constellation.find({});
 	
-			const spyFetchedUsers = spy.mock.results[0].value;
+			const spyFetchedConst = spy.mock.results[0].value;
 			expect(spy).toHaveBeenCalledTimes(1);
-			expect(spyFetchedUsers).toHaveLength(0);
+			expect(spyFetchedConst).toHaveLength(0);
 			spy.mockReset();
 		});
 	

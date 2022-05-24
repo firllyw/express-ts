@@ -78,6 +78,8 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.18.0",
+    "@babel/preset-typescript": "^7.17.12",
     "@types/command-line-args": "^5.2.0",
     "@types/cookie-parser": "^1.4.3",
     "@types/express": "^4.17.13",
